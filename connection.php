@@ -14,7 +14,6 @@ $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //Set fetch mode
 $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-echo "Database connection successful!";
 } catch (Exception $e) {
     echo "Connection Failed".$e->getMessage();
 }

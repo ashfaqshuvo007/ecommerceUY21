@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2018 at 07:10 AM
+-- Generation Time: Jan 08, 2018 at 12:48 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -29,10 +29,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `admins` (
   `admin_id` int(11) NOT NULL,
   `username` varchar(64) NOT NULL,
-  `passsword` varchar(64) NOT NULL,
+  `password` varchar(64) NOT NULL,
   `email` varchar(32) NOT NULL,
-  `admin_photo` varchar(64) DEFAULT NULL
+  `admin_photo` varchar(64) DEFAULT NULL,
+  `active` int(4) NOT NULL DEFAULT '0',
+  `activation_token` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`admin_id`, `username`, `password`, `email`, `admin_photo`, `active`, `activation_token`) VALUES
+(1, 'ashfaq001', '$2y$10$TEG1SIyQ4ivbaYyiDQkD3uG1wFASsA5pbsi8C7P763jVkewKJywtq', 'aasf@gmail.com', NULL, 1, 'b6be3f8c4a9a1b05a6397475582439b2eec52209');
 
 -- --------------------------------------------------------
 
@@ -179,7 +188,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `categories`
 --

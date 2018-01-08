@@ -48,7 +48,7 @@ class SMTP
      *
      * @var int
      */
-    const DEFAULT_PORT = 465;
+    const DEFAULT_PORT = 2525;
 
     /**
      * The maximum line length allowed by RFC 2822 section 2.1.1.
@@ -729,7 +729,7 @@ class SMTP
      *
      * @return bool
      */
-    public function hello($host = 'ssl://smtp.gmail.com')
+    public function hello($host = 'ssl://smtp.mailtrap.io')
     {
         //Try extended hello first (RFC 2821)
         return (bool) ($this->sendHello('EHLO', $host) or $this->sendHello('HELO', $host));
