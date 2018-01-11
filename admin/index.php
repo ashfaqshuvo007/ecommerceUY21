@@ -35,7 +35,7 @@ if (isset($_POST['login'])) {
         $data = $query->fetch();
        
         
-        if($query->rowCount() == 1 && password_verify($password, $data['password'])){
+        if($query->rowCount() === 1 && password_verify($password, $data['password'])){
             $_SESSION['id'] = $data['admin_id'];
             $_SESSION['username'] = $username;
             header('Location: dashboard.php');

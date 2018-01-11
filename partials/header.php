@@ -31,8 +31,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+            <li class="nav-item <?php if($page == 'home'){echo 'active';}?>">
+                <a class="nav-link" href="#">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -46,8 +46,8 @@
               <a class="nav-link" href="#">Checkout</a>
             </li>
            
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+            <li class="nav-item <?php if($page == 'contact'){echo 'active';}?>">
+              <a class="nav-link" href="contact.php">Contact</a>
             </li>
           </ul>
         </div>

@@ -1,5 +1,5 @@
 
-<?php include_once 'partials/header.php'; ?>
+<?php $page = 'home';include_once 'partials/header.php'; ?>
 <!-- Page Content -->
 <div class="container">
 

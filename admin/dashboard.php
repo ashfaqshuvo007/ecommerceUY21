@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$page = 'dashboard';
 
 if(empty($_SESSION) || empty($_SESSION['id'] || empty($_SESSION['username']))){
     header('Location: index.php');
@@ -15,13 +16,14 @@ if(empty($_SESSION) || empty($_SESSION['id'] || empty($_SESSION['username']))){
 <!-- Page Content -->
 <div class="container">
     <div class="row">
-        <div class="offset-md-2 col-md-8 offset-md-2 mb-4">
+        <?php include 'partials/sidebar.php'?>
+        <div class="col-md-8">
             
             <div class="alert alert-success">
-                <p>You are logged in </p>
+                <p>You are logged in as <?php echo $_SESSION['username']?> </p>
                 
             </div>
-            <a href="logout.php" class="btn btn-block btn-danger">Logout</a>
+            
         </div>
     </div>
     <!-- /.row -->

@@ -1,4 +1,11 @@
 <?php
+
+include_once 'partials/header.php';
+require '../vendor/autoload.php';
+use PHPMailer\PHPMailer\PHPMailer;
+
+?>
+<?php
 if (isset($_POST['resgister'])) {
     //get the data input by user
     $email = trim($_POST['email']);
@@ -7,6 +14,8 @@ if (isset($_POST['resgister'])) {
     $errors = [];
     $msgs = [];
 
+    
+      
     //validattion
     if (strlen($username) < 6) {
         $errors[] = "Username must be at least 6 characters";
@@ -17,9 +26,6 @@ if (isset($_POST['resgister'])) {
     if (strlen($password) < 6) {
         $errors[] = "Password must be at least 6 characters";
     }
-
-
-
 
     //if no errors
 
@@ -34,61 +40,53 @@ if (isset($_POST['resgister'])) {
         $query->bindValue('activation_token', $activation_token);
         $query->execute();
 
-        $msgs[] = "Registration done successfully! Please check your mail to activate your account";
+        $msgs[] = "Registration done successfully! ";
     }
 
     //email the user
-
-//    $mail = new PHPMailer(true);
-////    die($mail); // Passing `true` enables exceptions
-//    try {
-//        //Server settings
+//    require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+    $mail = new PHPMailer(true);
+      // Passing `true` enables exceptions
+    try {
+        //Server settings
 //        $mail->SMTPDebug = 2;
-//        $mail->Debugoutput = 'html';  // Enable verbose debug output
-//        $mail->isSMTP();                                      // Set mailer to use SMTP
-//        $mail->Host = 'smtp.mailtrap.io';  // Specify main and backup SMTP servers
-//        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-//        $mail->Username = 'ff73d354b8ef86';                 // SMTP username
-//        $mail->Password = '827f9f808b9117';                           // SMTP password
-//        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-//        $mail->Port = 2525;                                    // TCP port to connect to
-//        //Recipients
-//        $mail->setFrom('no-reply@gmail.com', 'UY21');
-//        $mail->addAddress($email, $username);     // Add a recipient
-//        //Content
-//        $mail->isHTML();                                  // Set email format to HTML
-//        $mail->Subject = 'Activation Link';
-//
-//        $mail->Body = '<p>Hello' . $username . '</p>'
-//                . '<p><a href="http://localhost/ecommerce_uy21/admin/activate.php?token=". $activation_token.">Click to activate</a></p>';
-//
-//
-//        $mail->send();
-//        $msgs[] = 'Email has been sent';
-//    } catch (Exception $e) {
-//        $errors[] = 'Email could not be sent.';
-//        $errors[] = 'Mailer Error: ' . $mail->ErrorInfo;
-//    }
+        $mail->Debugoutput = 'html';  // Enable verbose debug output
+       $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.mailtrap.io';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'ff73d354b8ef86';                 // SMTP username
+        $mail->Password = '827f9f808b9117';                           // SMTP password
+        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 2525;                                    // TCP port to connect to
+        //Recipients
+       $mail->setFrom('no-reply@gmail.com', 'UY21');
+       $mail->addAddress($email, $username);     // Add a recipient
+        //Content
+        $mail->isHTML();                                  // Set email format to HTML
+        $mail->Subject = 'Activation Link';
+
+        $mail->Body = '<p>Hello ' . $username . '</p>'
+                . '<p><a href="http://localhost/ecommerce_uy21/admin/activate.php?token='. $activation_token.'">Click to activate</a></p>';
+
+
+        $mail->send();
+        $msgs[] = 'Email has been sent. Please activate from your email account.';
+    } catch (Exception $e) {
+        $errors[] = 'Email could not be sent.';
+        $errors[] = 'Mailer Error: ' . $mail->ErrorInfo;
+    }
 
     //show message to user
 }
 ?>
-<?php
-include_once 'partials/header.php';
-//require_once '../vendor/autoload.php';
-//use PHPMailer\PHPMailer\PHPMailer;
-//use PHPMailer\PHPMailer\Exception;
-//
-//require 'vendor/autoload.php';
-////use 'PHPMailer\PHPMailer';
-?>
+
 
 
 <!-- Page Content -->
 <div class="container">
     <div class="row">
         <div class="offset-md-4 col-md-4 offset-md-4 mb-4" >
-<?php if (!empty($errors)) { ?>
+            <?php if (!empty($errors)) { ?>
                 <div class="alert alert-danger">
                 <?php foreach ($errors as $error) { ?>
                         <p><?php echo $error ?></p>  
