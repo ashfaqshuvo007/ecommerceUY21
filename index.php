@@ -1,5 +1,15 @@
 
 <?php $page = 'home';include_once 'partials/header.php'; ?>
+
+<?php
+
+$query = $connection->prepare("SELECT * FROM `products`");
+$query->execute();
+$pro_data = $query->fetchAll();
+
+
+
+?>
 <!-- Page Content -->
 <div class="container">
 
@@ -8,28 +18,29 @@
         <?php include_once 'partials/sidebar.php';?>
         <!-- /.col-lg-3 -->
 
-        <div class="col-lg-9">
+        <div class="col-md-9">
 
             <?php include_once 'partials/carousel.php';?>
 
             <div class="row">
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <?php foreach($pro_data as $v_pro) {?>
+                <div class="col-md-4 col-lg-4 mb-4">                   
+                    <div class="card">
+                        <a href="single-product.php?id=<?php echo $v_pro['product_id'];?>"><img class="card-img-top" src="uploads/pro_images/<?php echo $v_pro['product_photo'];?>" alt="proImage"></a>
                         <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item One</a>
-                            </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                            <p class="h3">
+                                <a href="single-product.php?id=<?php echo $v_pro['product_id'];?>"><?php echo $v_pro['product_name'];?></a>
+                                <h5 class="pull-right"> Tk. <?php echo $v_pro['product_price'];?></h5>
+                            </p>
+                            
+                            <p class="card-text"><?php echo $v_pro['product_details'];?></p>
+                            <a href="cart.php" class="btn btn-success">Add to Cart</a>
                         </div>
-<!--                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                        </div>-->
+                       
                     </div>
+                    
                 </div>
-
+                <?php }?>
                 
 
             </div>

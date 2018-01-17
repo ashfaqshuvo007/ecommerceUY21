@@ -32,18 +32,15 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item <?php if($page == 'home'){echo 'active';}?>">
-                <a class="nav-link" href="#">Home
+                <a class="nav-link" href="index.php">Home
                 <span class="sr-only">(current)</span>
               </a>
+            </li>           
+             <li class="nav-item <?php if($page == 'cart'){echo 'active';}?>">
+              <a class="nav-link" href="cart.php">Cart</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Shop</a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link" href="#">Cart</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Checkout</a>
+            <li class="nav-item <?php if($page == 'checkout'){echo 'active';}?>">
+              <a class="nav-link" href="checkout.php">Checkout</a>
             </li>
            
             <li class="nav-item <?php if($page == 'contact'){echo 'active';}?>">

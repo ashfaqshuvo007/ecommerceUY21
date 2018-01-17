@@ -1,4 +1,4 @@
-<?php session_start(); $page = 'orders';?>
+<?php $page = 'orders';?>
 
 <?php include_once 'partials/header.php'; ?>
 <!-- Page Content -->

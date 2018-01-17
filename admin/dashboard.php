@@ -1,8 +1,12 @@
+
+<?php include_once 'partials/header.php'; ?>
+
+
 <?php 
-session_start();
+
 $page = 'dashboard';
 
-if(empty($_SESSION) || empty($_SESSION['id'] || empty($_SESSION['username']))){
+if(empty($_SESSION) || empty($_SESSION['id'] || !isset($_SESSION['username']))){
     header('Location: index.php');
 }
 
@@ -12,12 +16,11 @@ if(empty($_SESSION) || empty($_SESSION['id'] || empty($_SESSION['username']))){
 
 
 
-<?php include_once 'partials/header.php'; ?>
 <!-- Page Content -->
 <div class="container">
     <div class="row">
         <?php include 'partials/sidebar.php'?>
-        <div class="col-md-8">
+        <div class="col-md-8 mt-4">
             
             <div class="alert alert-success">
                 <p>You are logged in as <?php echo $_SESSION['username']?> </p>

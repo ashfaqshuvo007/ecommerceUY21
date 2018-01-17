@@ -1,4 +1,4 @@
-<?php require_once 'connection.php'; ?>
+<?php require_once 'connection.php'; session_start(); ?>
 
 
 <!DOCTYPE html>
@@ -30,7 +30,9 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+         <?php if(!empty($_SESSION)){?>
         <div class="collapse navbar-collapse" id="navbarResponsive">
+            
           <ul class="navbar-nav">
             <li class="nav-item <?php if($page == 'dashboard'){ echo 'active';}?>">
               <a class="nav-link" href="dashboard.php">Dashboard
@@ -57,8 +59,15 @@
           </ul>
             
         </div>
+       
         <div class="pull-right" style="color:#fff;">
-            <i class="fa fa-user"></i><?php echo $_SESSION['username'];?>
+            <i class="fa fa-user"></i>&nbsp;<?php echo $_SESSION['username'];?>
         </div>
+        <?php }else{?>
+        <div class="pull-right">
+            <a href="index.php" class="btn btn-success btn-xs">Login</a>
+            <a href="register.php" class="btn btn-info btn-xs">Register</a>
+        </div>
+        <?php }?>
       </div>
     </nav>

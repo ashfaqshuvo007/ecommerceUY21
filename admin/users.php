@@ -1,4 +1,4 @@
-<?php session_start(); $page = 'users';?>
+<?php  $page = 'users';?>
 
 <?php include_once 'partials/header.php'; ?>
 <!-- Page Content -->

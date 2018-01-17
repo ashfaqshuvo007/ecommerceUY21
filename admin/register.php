@@ -1,11 +1,8 @@
 <?php
-
 include_once 'partials/header.php';
 require '../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 
-?>
-<?php
 if (isset($_POST['resgister'])) {
     //get the data input by user
     $email = trim($_POST['email']);
@@ -54,8 +51,8 @@ if (isset($_POST['resgister'])) {
        $mail->isSMTP();                                      // Set mailer to use SMTP
         $mail->Host = 'smtp.mailtrap.io';  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'ff73d354b8ef86';                 // SMTP username
-        $mail->Password = '827f9f808b9117';                           // SMTP password
+        $mail->Username = '6e08dc70e5c85d';                 // SMTP username
+        $mail->Password = 'a763978dee0298';                           // SMTP password
         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 2525;                                    // TCP port to connect to
         //Recipients

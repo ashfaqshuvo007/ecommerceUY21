@@ -1,13 +1,6 @@
 <?php
 include_once 'partials/header.php';
 
-session_start();
-
-
-?>
-
-
-<?php
 if (isset($_POST['login'])) {
 
     $username = trim($_POST['username']);
@@ -30,7 +23,7 @@ if (isset($_POST['login'])) {
     
     if(empty($errors)){
         $query = $connection->prepare('SELECT admin_id,email,password FROM `admins` WHERE username = :username');
-        $query->bindValue('username', strtolower($username));
+        $query->bindValue(':username', strtolower($username));
         $query->execute();
         $data = $query->fetch();
        
@@ -82,6 +75,7 @@ if (isset($_POST['login'])) {
                     <button name="login" class="btn btn-xs btn-success">Login</button>
                     <a href="register.php" class="btn btn-info" >Registration</a>
                 </div>
+                <a href="forgot_password.php">forgot your password?</a>
             </form>
         </div>
     </div>

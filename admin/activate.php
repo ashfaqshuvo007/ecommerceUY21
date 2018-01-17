@@ -6,10 +6,18 @@ $errors = [];
 
 
 
-if (empty($_GET) || !isset($_GET['token'])) {
+if (empty($_GET['token']) || !isset($_GET['token'])) {
     header('Location: index.php');
+}else {
+    $query = $connection->prepare('SELECT * FROM `admins` WHERE `activation_token` = :activation_token');
+    $query->bindValue(':activation_token', $_GET['token'], PDO::PARAM_INT);
+    $query->execute();
+    $admin_data = $query->fetch();
+
+    if ($query->rowCount() === 0) {
+        header('Location: index.php');
+    }
 }
-$msgs[] = 'Your token is invalid.';
 
 $token = $_GET['token'];
 $query = $connection->prepare("UPDATE `admins` SET `active` = 1 WHERE `activation_token` = :token ");
