@@ -19,7 +19,7 @@ $cat_data = $query->fetchAll();
     
     <div class="list-group">
         <?php foreach ($cat_data as $v_cat){?>
-        <a href="category.php?id=<?php echo $v_cat['category_id'];?>" class="list-group-item"><?php echo $v_cat['category_name'];?></a>
+        <a href="single_category.php?id=<?php echo $v_cat['category_id'];?>" class="list-group-item"><?php echo $v_cat['category_name'];?></a>
         <?php }?>
     </div>
 

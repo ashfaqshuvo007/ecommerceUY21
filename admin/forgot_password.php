@@ -62,8 +62,9 @@ if (isset($_POST['reset'])) {
                 $errors[] = 'Email could not be sent.';
                 $errors[] = 'Mailer Error: ' . $mail->ErrorInfo;
             }
-        }$errors[] = "No user found with this email.";
-        
+        }else{
+            $errors[] = "No user found with this email.";
+        }
     }
     
 }

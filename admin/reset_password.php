@@ -39,7 +39,7 @@ if (isset($_POST['reset'])) {
     if ($update_query->rowCount() === 1) {
         
         $msgs[] = "Password Updated ";
-        
+//        session_destroy();
     }
 }
 ?>

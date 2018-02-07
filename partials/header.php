@@ -1,4 +1,3 @@
-<?php require 'connection.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +24,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Ecommerce UY 21</a>
+        <a class="navbar-brand" href="index.php">Ecommerce UY 21</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,11 +37,7 @@
             </li>           
              <li class="nav-item <?php if($page == 'cart'){echo 'active';}?>">
               <a class="nav-link" href="cart.php">Cart</a>
-            </li>
-            <li class="nav-item <?php if($page == 'checkout'){echo 'active';}?>">
-              <a class="nav-link" href="checkout.php">Checkout</a>
-            </li>
-           
+            </li>                    
             <li class="nav-item <?php if($page == 'contact'){echo 'active';}?>">
               <a class="nav-link" href="contact.php">Contact</a>
             </li>

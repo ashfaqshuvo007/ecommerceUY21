@@ -1,4 +1,4 @@
-
+<?php include 'partials/header.php';?>
 <?php 
 
 if(empty($_SESSION) || empty($_SESSION['id'] || empty($_SESSION['username']))){
@@ -7,7 +7,7 @@ if(empty($_SESSION) || empty($_SESSION['id'] || empty($_SESSION['username']))){
 
 ?>
 <?php
-include 'partials/header.php';
+
 require '../vendor/autoload.php';
 
 // import the Intervention Image Manager Class

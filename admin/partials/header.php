@@ -34,26 +34,26 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             
           <ul class="navbar-nav">
-            <li class="nav-item <?php if($page == 'dashboard'){ echo 'active';}?>">
+            <li class="nav-item <?php if($page == 'dashboard'){echo 'active';}?>">
               <a class="nav-link" href="dashboard.php">Dashboard
 <!--                <span class="sr-only">(current)</span>-->
               </a>
             </li>
-            <li class="nav-item <?php if($page == 'categories'){ echo 'active';}?>">
+            <li class="nav-item <?php if($page == 'categories'){echo 'active';}?>">
               <a class="nav-link" href="categories.php">Categories</a>
             </li>
             
-             <li class="nav-item <?php if($page == 'products'){ echo 'active';}?>">
+             <li class="nav-item <?php if($page == 'products'){echo 'active';}?>">
               <a class="nav-link" href="products.php">Products</a>
             </li>
-            <li class="nav-item <?php if($page == 'orders'){ echo 'active';}?>">
+            <li class="nav-item <?php if($page == 'orders'){echo 'active';}?>">
               <a class="nav-link" href="orders.php">Orders</a>
             </li>
            
-            <li class="nav-item <?php if($page == 'users'){ echo 'active';}?>">
+            <li class="nav-item <?php if($page == 'users'){echo 'active';}?>">
               <a class="nav-link" href="users.php">Users</a>
             </li>
-            <li class="nav-item <?php if($page == 'admins'){ echo 'active';}?>">
+            <li class="nav-item <?php if($page == 'admins'){echo 'active';}?>">
               <a class="nav-link" href="admins.php">Admins</a>
             </li>
           </ul>

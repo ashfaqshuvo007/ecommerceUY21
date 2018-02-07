@@ -1,6 +1,6 @@
-<?php include_once 'partials/header.php';?>
-<?php
 
+<?php
+require 'connection.php';
 if(isset($_GET['id'])){
 $query = $connection->prepare("SELECT * FROM `products` WHERE `product_id` = :product_id");
 $query->bindValue(':product_id',$_GET['id'],PDO::PARAM_INT);
@@ -11,7 +11,7 @@ $pro_data = $query->fetch();
 
 
 ?>
-
+<?php include_once 'partials/header.php';?>
 <div class="container">
 
       <div class="row">
